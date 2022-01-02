@@ -3,7 +3,7 @@ from pathlib import Path
 inp = input("Enter Path to be organised :")
 req_path = Path("/Users/dhruvmathur/Documents")
 main_path = Path(inp)
-folders = ["Racket", "Python", "stuff", "PDF", "Roms", "apps"]
+folders = ["Racket", "Python", "stuff", "PDF", "Roms", "apps", "CS-Assignments"]
 
 def replacer(index, filename):
     new_path = req_path.joinpath(folders[index])
@@ -18,8 +18,10 @@ for file in main_path.iterdir():
     new_file = f'{file.stem}{ext}'
 
     if file.is_file() and file.stem != ".DS_Store":
-
-        if ext == ".rkt":
+        
+        if "Cs" in stem:
+            a = 6
+        elif ext == ".rkt":
             a = 0
         elif ext == ".py":
             a = 1
