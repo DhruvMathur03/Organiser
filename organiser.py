@@ -2,7 +2,7 @@ from pathlib import Path
 
 req_path = Path("/Users/dhruvmathur/Documents")
 user_path = Path("/Users/dhruvmathur/")
-folders = ["Racket", "Python", "stuff", "Roms", "apps", "CS-Assignments", "MATH"]
+folders = ["Racket", "Python", "stuff", "Roms", "apps", "CS-Assignments", "MATH", "Screenshots"]
 
 def paths(inp):
 
@@ -33,10 +33,11 @@ def user_input():
 def replacer(index, filename):
     new_path = req_path.joinpath(folders[index])
 
-    if index == 7 and "136" in filename:
-        new_path = new_path.joinpath("136")
-    else:
-        new_path = new_path.joinpath("138")
+    if index == 6:
+        if "136" in filename:
+            new_path = new_path.joinpath("136")
+        else:
+            new_path = new_path.joinpath("138")
 
     new_file_path = new_path.joinpath(filename)
     file.replace(new_file_path)
@@ -55,6 +56,8 @@ for file in main_path.iterdir():
         
         if "Cs" in stem:
             a = 5
+        elif "Screenshot" in stem:
+            a = 7
         elif ext == ".rkt":
             a = 0
         elif ext == ".py":
